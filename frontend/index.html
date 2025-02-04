@@ -1,0 +1,307 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   RAGify
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .zoom:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .zoom:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-in-out;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-gray-200">
+  <header class="bg-gray-800 text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">
+     RAGify
+    </h1>
+    <nav>
+     <ul class="flex space-x-4">
+      <li>
+       <a class="hover:underline" href="#home">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#about">
+        About
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#blog">
+        Blog
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#faqs">
+        FAQs
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#contact">
+        Contact
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main class="container mx-auto p-4">
+   <section class="my-8 fade-in" id="home">
+    <h2 class="text-3xl font-bold mb-4">
+     Ask your query
+    </h2>
+    <div class="relative bg-gray-800 p-6 rounded shadow-md">
+     <img alt="A technical background image with abstract technology patterns" class="absolute inset-0 w-full h-full object-cover opacity-20 rounded" height="800" src="https://storage.googleapis.com/a1aa/image/HbemBWeZsHj0tYtfft4gsUhTQX0H2NjDFl9oo8BcBbE.jpg" width="1200"/>
+     <div class="relative z-10">
+      <input class="w-full p-3 border border-gray-700 rounded mb-4 bg-gray-700 text-gray-200" id="query" placeholder="Enter your question" type="text"/>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300" onclick="sendQuery()">
+       Submit
+      </button>
+      <div class="mt-4 font-bold" id="response">
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="my-8 fade-in" id="about">
+    <h2 class="text-3xl font-bold mb-4">
+     About RAGify
+    </h2>
+    <div class="relative bg-gray-800 p-6 rounded shadow-md">
+     <img alt="A technical background image with abstract technology patterns" class="absolute inset-0 w-full h-full object-cover opacity-20 rounded" height="800" src="https://storage.googleapis.com/a1aa/image/HbemBWeZsHj0tYtfft4gsUhTQX0H2NjDFl9oo8BcBbE.jpg" width="1200"/>
+     <div class="relative z-10">
+      <p class="mb-4">
+       RAGify is designed to provide quick and accurate responses to your queries. Using advanced algorithms, it processes your questions and delivers precise answers.
+      </p>
+      <p class="mb-4">
+       Our system leverages state-of-the-art natural language processing (NLP) techniques to understand the context and nuances of your queries. This ensures that the responses are not only accurate but also relevant to your needs.
+      </p>
+      <p class="mb-4">
+       RAGify is built with scalability in mind, capable of handling a large volume of queries simultaneously. Whether you're a student looking for information, a professional seeking quick answers, or just someone curious about a topic, RAGify is here to help.
+      </p>
+      <p class="mb-4">
+       Our team of experts continuously updates the system to incorporate the latest advancements in AI and machine learning. This commitment to innovation ensures that RAGify remains at the forefront of query response systems.
+      </p>
+      <p>
+       We believe in making information accessible to everyone. That's why RAGify is free to use, with no hidden costs or subscription fees. Our goal is to empower users with the knowledge they seek, quickly and efficiently.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="my-8 fade-in" id="blog">
+    <h2 class="text-3xl font-bold mb-4">
+     Blog
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+     <article class="relative bg-gray-800 p-6 rounded shadow-md">
+      <img alt="A detailed image of a computer processing data" class="w-full h-40 object-cover rounded mb-4 zoom" height="400" src="https://storage.googleapis.com/a1aa/image/ItqxTti-i7hpzyNesXfcmxV1bBlh3ynz3SCepaoQp-8.jpg" width="600"/>
+      <div class="relative z-10">
+       <h3 class="text-xl font-bold mb-2">
+        Understanding RAGify
+       </h3>
+       <p>
+        Learn how RAGify works and how it can benefit you in your daily tasks.
+       </p>
+      </div>
+     </article>
+     <article class="relative bg-gray-800 p-6 rounded shadow-md">
+      <img alt="A person using a laptop to query RAGify" class="w-full h-40 object-cover rounded mb-4 zoom" height="400" src="https://storage.googleapis.com/a1aa/image/5R6nRpx74d9Pcx_IiVBAtkYaOTW8xz4oSLqGMuTCa6U.jpg" width="600"/>
+      <div class="relative z-10">
+       <h3 class="text-xl font-bold mb-2">
+        Tips for Effective Queries
+       </h3>
+       <p>
+        Discover tips and tricks to get the most accurate responses from RAGify.
+       </p>
+      </div>
+     </article>
+     <article class="relative bg-gray-800 p-6 rounded shadow-md">
+      <img alt="A team of developers working on RAGify" class="w-full h-40 object-cover rounded mb-4 zoom" height="400" src="https://storage.googleapis.com/a1aa/image/YqRIYsyt4lx_fGZwgXZN9USOOwqecOMzwJCqF9JgJ-U.jpg" width="600"/>
+      <div class="relative z-10">
+       <h3 class="text-xl font-bold mb-2">
+        Behind the Scenes
+       </h3>
+       <p>
+        Get a glimpse of the technology and team behind RAGify.
+       </p>
+      </div>
+     </article>
+    </div>
+   </section>
+   <section class="my-8 fade-in" id="faqs">
+    <h2 class="text-3xl font-bold mb-4">
+     FAQs
+    </h2>
+    <div class="relative bg-gray-800 p-6 rounded shadow-md">
+     <img alt="A technical background image with abstract technology patterns" class="absolute inset-0 w-full h-full object-cover opacity-20 rounded" height="800" src="https://storage.googleapis.com/a1aa/image/HbemBWeZsHj0tYtfft4gsUhTQX0H2NjDFl9oo8BcBbE.jpg" width="1200"/>
+     <div class="relative z-10">
+      <div class="mb-4">
+       <h3 class="text-xl font-bold">
+        What is RAGify?
+       </h3>
+       <p>
+        RAGify is a query response system designed to provide accurate answers to your questions.
+       </p>
+      </div>
+      <div class="mb-4">
+       <h3 class="text-xl font-bold">
+        How does it work?
+       </h3>
+       <p>
+        It uses advanced algorithms to process your queries and deliver precise responses.
+       </p>
+      </div>
+      <div class="mb-4">
+       <h3 class="text-xl font-bold">
+        Is it free to use?
+       </h3>
+       <p>
+        Yes, RAGify is completely free to use.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="my-8 fade-in" id="contact">
+    <h2 class="text-3xl font-bold mb-4">
+     Contact Us
+    </h2>
+    <div class="relative bg-gray-800 p-6 rounded shadow-md">
+     <img alt="A technical background image with abstract technology patterns" class="absolute inset-0 w-full h-full object-cover opacity-20 rounded" height="800" src="https://storage.googleapis.com/a1aa/image/HbemBWeZsHj0tYtfft4gsUhTQX0H2NjDFl9oo8BcBbE.jpg" width="1200"/>
+     <div class="relative z-10">
+        <form id="contactForm">
+            <div class="mb-4">
+             <label class="block text-gray-400" for="name">
+              Name
+             </label>
+             <input class="w-full p-3 border border-gray-700 rounded bg-gray-700 text-gray-200" id="name" placeholder="Your name" type="text"/>
+            </div>
+            <div class="mb-4">
+             <label class="block text-gray-400" for="email">
+              Email
+             </label>
+             <input class="w-full p-3 border border-gray-700 rounded bg-gray-700 text-gray-200" id="email" placeholder="Your email" type="email"/>
+            </div>
+            <div class="mb-4">
+             <label class="block text-gray-400" for="message">
+              Message
+             </label>
+             <textarea class="w-full p-3 border border-gray-700 rounded bg-gray-700 text-gray-200" id="message" placeholder="Your message"></textarea>
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300" type="submit">
+             Send
+            </button>
+            <div id="contactResponse" class="mt-4 text-white font-bold"></div> <!-- Added response div -->
+         </form>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gray-800 text-white p-4 mt-8">
+   <div class="container mx-auto text-center">
+    <p>
+     © 2025 RAGify. All rights reserved.
+    </p>
+    <div class="flex justify-center space-x-4 mt-4">
+     <a class="hover:text-blue-400 transition duration-300" href="https://www.linkedin.com/in/harsh-mishra-56406925b" target="_blank">
+      <i class="fab fa-linkedin fa-2x">
+      </i>
+     </a>
+     <a class="hover:text-pink-400 transition duration-300" href="https://www.instagram.com/harsh.__.1202" target="_blank">
+      <i class="fab fa-instagram fa-2x">
+      </i>
+     </a>
+     <a class="hover:text-blue-400 transition duration-300" href="https://x.com/harsh_mish27735" target="_blank">
+      <i class="fab fa-twitter fa-2x">
+      </i>
+     </a>
+     <a class="hover:text-red-400 transition duration-300" href="mailto:harsh.mishra2022@glbajajgroup.org">
+      <i class="fas fa-envelope fa-2x">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   async function sendQuery() {
+            const query = document.getElementById('query').value;
+            const responseDiv = document.getElementById('response');
+
+            if (!query) {
+                responseDiv.innerText = 'Please enter a query!';
+                return;
+            }
+
+            const response = await fetch('http://localhost:5000/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query })
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                responseDiv.innerText = `Response: ${data.response}`;
+            } else {
+                responseDiv.innerText = `Error: ${data.error}`;
+            }
+        }
+        // Add event listener for contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the values from the form fields
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const contactResponseDiv = document.getElementById('contactResponse');
+
+            // Prepare the data to be sent
+            const data = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Send the data to the backend
+            const response = await fetch('/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data) // Convert the data to JSON
+            });
+
+            // Handle the response from the backend
+            const result = await response.json();
+            if (response.ok) {
+                contactResponseDiv.innerText = 'Message sent successfully!';
+            } else {
+                contactResponseDiv.innerText = `Error: ${result.error}`;
+            }
+        });
+  </script>
+ </body>
+</html>
