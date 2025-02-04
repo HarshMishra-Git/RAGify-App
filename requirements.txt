@@ -4,3 +4,4 @@ gunicorn
 torch
 transformers
 sentence-transformers
+werkzeug
