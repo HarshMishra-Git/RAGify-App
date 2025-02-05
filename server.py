@@ -1,21 +1,14 @@
-import os
-import csv
-import socket
 from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
+from flask_cors import CORS  # Import CORS for handling cross-origin requests
 from pipeline import build_rag_pipeline, handle_query  # Import your functions
+import csv
+import os
 
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
+app = Flask(__name__)  # Initialize Flask app
+# CORS(app, resources={r"/*": {"origins": "http://localhost"}})  # Enable CORS for frontend on localhost
+CORS(app)
 # Initialize the RAG pipeline
 vector_store = build_rag_pipeline()
-
-def find_free_port():
-    """Finds a free port dynamically."""
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(("0.0.0.0", 0))  # Bind to any available port
-        return s.getsockname()[1]  # Return assigned port
 
 @app.route('/')
 def home():
@@ -50,14 +43,17 @@ def contact():
         if not name or not email or not message:
             return jsonify({'error': 'All fields are required!'}), 400
 
-        os.makedirs('data', exist_ok=True)  # Ensure the data directory exists
+        # Ensure the data directory exists
+        os.makedirs('data', exist_ok=True)
         csv_file_path = 'data/contact_responses.csv'
 
+        # Ensure the CSV file exists with headers
         if not os.path.exists(csv_file_path):
             with open(csv_file_path, 'w', newline='', encoding='utf-8') as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerow(['name', 'email', 'message'])  # Write headers
 
+        # Write contact data to CSV
         with open(csv_file_path, mode='a', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([name, email, message])
@@ -68,7 +64,4 @@ def contact():
         return jsonify({'error': f'Failed to save contact information: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    PORT = find_free_port()
-    print(f"🚀 Running Flask on port {PORT}")
-    app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False)
-
+    app.run(debug=True)  # Run the Flask app in debug mode
