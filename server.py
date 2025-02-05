@@ -70,4 +70,4 @@ def contact():
 if __name__ == '__main__':
     PORT = find_free_port()
     print(f"🚀 Running Flask on port {PORT}")
-    app.run(host="0.0.0.0", port=PORT, debug=TRUE)
+    app.run(host="0.0.0.0", port=PORT, debug=True)
